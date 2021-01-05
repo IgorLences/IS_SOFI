@@ -48,12 +48,15 @@ namespace Informačný_systém_SOFI
         //Update vybraného riadku
         private void button_UlozitZmeny_Click(object sender, EventArgs e)
         {
-            //uloženie  IDzamestnanca z vybraného riadku
-            string ID = dataGridView_Zamestnanec.SelectedRows[0].Cells["idzamestnanci"].Value.ToString();
-            // Úprava už existujúceho záznamu v tabulke zamestnanci v DB
-            Zamestnanec.UpdateZamestnanca(ID, textBox_Meno.Text, textBox_Priezvisko.Text, comboBox_PracovnaPozicia2.Text, textBox_HodinovaMzda.Text);
-            //Vybrať určité riadky z tabuľky zamestnanci z DB a uložiť do DataGridView pre zobrazenie updatenutých dát
-            Zamestnanec.FillDGVSelectZamestnanci(dataGridView_Zamestnanec, comboBox_MenoZamestannca.Text, comboBox_IDzamestannca.Text, comboBox_pracovnaPozicia.Text);
+            if (dataGridView_Zamestnanec.SelectedRows.Count > 0)
+            {
+                //uloženie  IDzamestnanca z vybraného riadku
+                string ID = dataGridView_Zamestnanec.SelectedRows[0].Cells["idzamestnanci"].Value.ToString();
+                // Úprava už existujúceho záznamu v tabulke zamestnanci v DB
+                Zamestnanec.UpdateZamestnanca(ID, textBox_Meno.Text, textBox_Priezvisko.Text, comboBox_PracovnaPozicia2.Text, textBox_HodinovaMzda.Text);
+                //Vybrať určité riadky z tabuľky zamestnanci z DB a uložiť do DataGridView pre zobrazenie updatenutých dát
+                Zamestnanec.FillDGVSelectZamestnanci(dataGridView_Zamestnanec, comboBox_MenoZamestannca.Text, comboBox_IDzamestannca.Text, comboBox_pracovnaPozicia.Text);
+            }
 
         }
 
@@ -84,12 +87,15 @@ namespace Informačný_systém_SOFI
         // Odstránenie vybraného záznamu v tabulke zamestnanci v DB
         private void button_Odstrániť_Click(object sender, EventArgs e)
         {
-            //uloženie  IDzamestnanca z vybraného riadku
-            string ID = dataGridView_Zamestnanec.SelectedRows[0].Cells["idzamestnanci"].Value.ToString();
-            // Odstránenie existujúceho záznamu v tabulke zamestnanaci v DB
-            Zamestnanec.DeleteZamestnanec(ID);
-            //Vybrať určité riadky z tabuľky zamestnanci z DB a uložiť do DataGridView pre zobrazenie dát
-            Zamestnanec.FillDGVSelectZamestnanci(dataGridView_Zamestnanec, comboBox_MenoZamestannca.Text, comboBox_IDzamestannca.Text, comboBox_pracovnaPozicia.Text);
+            if (dataGridView_Zamestnanec.SelectedRows.Count > 0)
+            {
+                //uloženie  IDzamestnanca z vybraného riadku
+                string ID = dataGridView_Zamestnanec.SelectedRows[0].Cells["idzamestnanci"].Value.ToString();
+                // Odstránenie existujúceho záznamu v tabulke zamestnanaci v DB
+                Zamestnanec.DeleteZamestnanec(ID);
+                //Vybrať určité riadky z tabuľky zamestnanci z DB a uložiť do DataGridView pre zobrazenie dát
+                Zamestnanec.FillDGVSelectZamestnanci(dataGridView_Zamestnanec, comboBox_MenoZamestannca.Text, comboBox_IDzamestannca.Text, comboBox_pracovnaPozicia.Text);
+            }
         }
     }
 }

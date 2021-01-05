@@ -59,12 +59,15 @@ namespace Informačný_systém_SOFI
         //Update vybraného riadku
         private void button_UpdateOdpracovaneDni_Click(object sender, EventArgs e)
         {
-            //uloženie  KodZakazky z vybraného riadku
-            string idodpracovanyden = dataGridView_OdpracovanyDen.SelectedRows[0].Cells["IDOdpracovaneDni"].Value.ToString();
-            // Úprava už existujúceho záznamu v tabulke odpracovane_dni v DB
-            OdpracovanyDen.UpdateOdpracovanyDen(idodpracovanyden, comboBox_Zamestnanec2.Text, comboBox_Zakazka2.Text, textBox_DatumPrace.Text, textBox_OdpracovanýČas.Text, comboBox_Koeficient2.Text);
-            //Vybrať určité riadky z tabuľky odpracovane_dni z DB a uložiť do DataGridView pre zobrazenie updatenutých dát
-            OdpracovanyDen.FillDGVSelectOdpracovanedni(dataGridView_OdpracovanyDen, comboBox_IDodpracovanyDen.Text, Zamestnanec.GetID(comboBox_Zamestnanec.Text), Zakazka.GetKod(comboBox_Zakazka.Text), comboBox_Koeficient.Text, Convert.ToString(comboBox_mesiac.SelectedIndex), comboBox_Rok.Text);
+            if (dataGridView_OdpracovanyDen.SelectedRows.Count > 0)
+            {
+                //uloženie  KodZakazky z vybraného riadku
+                string idodpracovanyden = dataGridView_OdpracovanyDen.SelectedRows[0].Cells["IDOdpracovaneDni"].Value.ToString();
+                // Úprava už existujúceho záznamu v tabulke odpracovane_dni v DB
+                OdpracovanyDen.UpdateOdpracovanyDen(idodpracovanyden, comboBox_Zamestnanec2.Text, comboBox_Zakazka2.Text, textBox_DatumPrace.Text, textBox_OdpracovanýČas.Text, comboBox_Koeficient2.Text);
+                //Vybrať určité riadky z tabuľky odpracovane_dni z DB a uložiť do DataGridView pre zobrazenie updatenutých dát
+                OdpracovanyDen.FillDGVSelectOdpracovanedni(dataGridView_OdpracovanyDen, comboBox_IDodpracovanyDen.Text, Zamestnanec.GetID(comboBox_Zamestnanec.Text), Zakazka.GetKod(comboBox_Zakazka.Text), comboBox_Koeficient.Text, Convert.ToString(comboBox_mesiac.SelectedIndex), comboBox_Rok.Text);
+            }
         }
 
 
@@ -88,11 +91,14 @@ namespace Informačný_systém_SOFI
         private void button_Odstrániť_Click(object sender, EventArgs e)
         {
             //uloženie  KodZakazky z vybraného riadku
-            string idodpracovanyden = dataGridView_OdpracovanyDen.SelectedRows[0].Cells["IDOdpracovaneDni"].Value.ToString();
-            // Odstránenie existujúceho záznamu v tabulke odpracovany_den v DB
-            OdpracovanyDen.DeleteOdpracovanyDeň(idodpracovanyden);
-            //Vybrať určité riadky z tabuľky odpracovane_dni z DB a uložiť do DataGridView pre zobrazenie dát
-            OdpracovanyDen.FillDGVSelectOdpracovanedni(dataGridView_OdpracovanyDen, comboBox_IDodpracovanyDen.Text, Zamestnanec.GetID(comboBox_Zamestnanec.Text), Zakazka.GetKod(comboBox_Zakazka.Text), comboBox_Koeficient.Text, Convert.ToString(comboBox_mesiac.SelectedIndex), comboBox_Rok.Text);
+            if (dataGridView_OdpracovanyDen.SelectedRows.Count > 0)
+            {
+                string idodpracovanyden = dataGridView_OdpracovanyDen.SelectedRows[0].Cells["IDOdpracovaneDni"].Value.ToString();
+                // Odstránenie existujúceho záznamu v tabulke odpracovany_den v DB
+                OdpracovanyDen.DeleteOdpracovanyDeň(idodpracovanyden);
+                //Vybrať určité riadky z tabuľky odpracovane_dni z DB a uložiť do DataGridView pre zobrazenie dát
+                OdpracovanyDen.FillDGVSelectOdpracovanedni(dataGridView_OdpracovanyDen, comboBox_IDodpracovanyDen.Text, Zamestnanec.GetID(comboBox_Zamestnanec.Text), Zakazka.GetKod(comboBox_Zakazka.Text), comboBox_Koeficient.Text, Convert.ToString(comboBox_mesiac.SelectedIndex), comboBox_Rok.Text);
+            }
         }
     }
 }
