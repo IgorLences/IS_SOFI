@@ -139,5 +139,20 @@ namespace Informačný_systém_SOFI.classes
             dBConnection.FillDataGridView("zamestnanci", "*", condition, DGV);
         }
 
+
+
+        // Odstránenie existujúceho záznamu v tabulke zamestnanec v DB
+        public static void DeleteZamestnanec(string idzamestnanca)
+        {
+            if (!string.IsNullOrEmpty(idzamestnanca))
+            {
+                string Condition = " idzamestnanci = '" + idzamestnanca + "'";
+                dBConnection.DeleteFromDb("zamestnanci", Condition);
+            }
+            else
+            {
+                MessageBox.Show("Chyba : Vyplnte všetky voľné políčka");
+            }
+        }
     }
 }

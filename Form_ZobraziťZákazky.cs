@@ -81,5 +81,17 @@ namespace Informačný_systém_SOFI
                 comboBox_Odberatelia.Text = dataGridView_Zákazka.SelectedRows[0].Cells["Nazov"].Value.ToString();               
             }
         }
+
+
+
+        private void button_Odstrániť_Click(object sender, EventArgs e)
+        {
+            //uloženie  KodZakazky z vybraného riadku
+            string KodZakazky = dataGridView_Zákazka.SelectedRows[0].Cells["KodZakazky"].Value.ToString();
+            // Odstránenie existujúceho záznamu v tabulke zakazky v DB
+            Zakazka.DeleteZakazku(KodZakazky);
+            //Vybrať určité riadky z tabuľky odberatelia z DB a uložiť do DataGridView pre zobrazenie dát
+            Zakazka.FillDGVSelectZakazky(dataGridView_Zákazka, comboBox_NazovZakazky.Text, comboBox_Kodzakazky.Text, Odberatel.GetID(comboBox_Odberatel.Text), comboBox_Koeficient.Text, Convert.ToString(comboBox_mesiac.SelectedIndex), comboBox_Rok.Text);
+        }
     }
 }

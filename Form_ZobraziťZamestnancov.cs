@@ -78,5 +78,18 @@ namespace Informačný_systém_SOFI
         {
             Zamestnanec.FillDGVSelectZamestnanci(dataGridView_Zamestnanec, comboBox_MenoZamestannca.Text, comboBox_IDzamestannca.Text, comboBox_pracovnaPozicia.Text);
         }
+
+
+
+        // Odstránenie vybraného záznamu v tabulke zamestnanci v DB
+        private void button_Odstrániť_Click(object sender, EventArgs e)
+        {
+            //uloženie  IDzamestnanca z vybraného riadku
+            string ID = dataGridView_Zamestnanec.SelectedRows[0].Cells["idzamestnanci"].Value.ToString();
+            // Odstránenie existujúceho záznamu v tabulke zamestnanaci v DB
+            Zamestnanec.DeleteZamestnanec(ID);
+            //Vybrať určité riadky z tabuľky zamestnanci z DB a uložiť do DataGridView pre zobrazenie dát
+            Zamestnanec.FillDGVSelectZamestnanci(dataGridView_Zamestnanec, comboBox_MenoZamestannca.Text, comboBox_IDzamestannca.Text, comboBox_pracovnaPozicia.Text);
+        }
     }
 }

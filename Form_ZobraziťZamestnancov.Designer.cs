@@ -56,6 +56,7 @@ namespace Informačný_systém_SOFI
             this.label_PracovnaPozicia = new System.Windows.Forms.Label();
             this.button_ZobraziťVýber = new System.Windows.Forms.Button();
             this.labelMeno = new System.Windows.Forms.Label();
+            this.button_Odstrániť = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Zamestnanec)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -125,6 +126,7 @@ namespace Informačný_systém_SOFI
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button_Odstrániť);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.comboBox_PracovnaPozicia2);
@@ -249,9 +251,9 @@ namespace Informačný_systém_SOFI
             this.button_UlozitZmeny.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_UlozitZmeny.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button_UlozitZmeny.ForeColor = System.Drawing.Color.White;
-            this.button_UlozitZmeny.Location = new System.Drawing.Point(143, 679);
+            this.button_UlozitZmeny.Location = new System.Drawing.Point(23, 687);
             this.button_UlozitZmeny.Name = "button_UlozitZmeny";
-            this.button_UlozitZmeny.Size = new System.Drawing.Size(220, 43);
+            this.button_UlozitZmeny.Size = new System.Drawing.Size(206, 43);
             this.button_UlozitZmeny.TabIndex = 107;
             this.button_UlozitZmeny.Text = "Uložiť zmeny";
             this.button_UlozitZmeny.UseVisualStyleBackColor = false;
@@ -386,6 +388,22 @@ namespace Informačný_systém_SOFI
             this.labelMeno.TabIndex = 95;
             this.labelMeno.Text = "Meno";
             // 
+            // button_Odstrániť
+            // 
+            this.button_Odstrániť.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_Odstrániť.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
+            this.button_Odstrániť.FlatAppearance.BorderSize = 0;
+            this.button_Odstrániť.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Odstrániť.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button_Odstrániť.ForeColor = System.Drawing.Color.White;
+            this.button_Odstrániť.Location = new System.Drawing.Point(241, 687);
+            this.button_Odstrániť.Name = "button_Odstrániť";
+            this.button_Odstrániť.Size = new System.Drawing.Size(209, 43);
+            this.button_Odstrániť.TabIndex = 116;
+            this.button_Odstrániť.Text = "Odstrániť";
+            this.button_Odstrániť.UseVisualStyleBackColor = false;
+            this.button_Odstrániť.Click += new System.EventHandler(this.button_Odstrániť_Click);
+            // 
             // Form_ZobraziťZamestnancov
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -436,5 +454,6 @@ namespace Informačný_systém_SOFI
         private System.Windows.Forms.Button button_UlozitZmeny;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox_Meno;
+        private System.Windows.Forms.Button button_Odstrániť;
     }
 }

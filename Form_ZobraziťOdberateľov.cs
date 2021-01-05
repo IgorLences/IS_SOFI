@@ -67,8 +67,20 @@ namespace Informačný_systém_SOFI
             if (dataGridView_Odberatel.SelectedRows.Count > 0)
             {
                 textBox_NazovOdberatela.Text = dataGridView_Odberatel.SelectedRows[0].Cells["Nazov"].Value.ToString();
-
             }
+        }
+
+
+
+        // Odstránenie vybraného záznamu v tabulke odberatelia v DB
+        private void button_Odstrániť_Click(object sender, EventArgs e)
+        {
+            //uloženie  IDodberatela z vybraného riadku
+            string Idodberatel = dataGridView_Odberatel.SelectedRows[0].Cells["Idodberatel"].Value.ToString();
+            // Odstránenie existujúceho záznamu v tabulke odberatelia v DB
+            Odberatel.DeleteOdberatel(Idodberatel);
+            //Vybrať určité riadky z tabuľky odberatelia z DB a uložiť do DataGridView pre zobrazenie dát
+            Odberatel.FillDGVSelectOdberatelia(dataGridView_Odberatel, comboBox_IDodberatela.Text, comboBox_NazovOdberatela.Text);
         }
     }
 }

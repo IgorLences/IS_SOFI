@@ -81,5 +81,18 @@ namespace Informačný_systém_SOFI
                 comboBox_Koeficient2.Text = dataGridView_OdpracovanyDen.SelectedRows[0].Cells["Koeficient"].Value.ToString();
             }
         }
+
+
+
+        // Odstránenie vybraného záznamu v tabulke odpracovany_den v DB
+        private void button_Odstrániť_Click(object sender, EventArgs e)
+        {
+            //uloženie  KodZakazky z vybraného riadku
+            string idodpracovanyden = dataGridView_OdpracovanyDen.SelectedRows[0].Cells["IDOdpracovaneDni"].Value.ToString();
+            // Odstránenie existujúceho záznamu v tabulke odpracovany_den v DB
+            OdpracovanyDen.DeleteOdpracovanyDeň(idodpracovanyden);
+            //Vybrať určité riadky z tabuľky odpracovane_dni z DB a uložiť do DataGridView pre zobrazenie dát
+            OdpracovanyDen.FillDGVSelectOdpracovanedni(dataGridView_OdpracovanyDen, comboBox_IDodpracovanyDen.Text, Zamestnanec.GetID(comboBox_Zamestnanec.Text), Zakazka.GetKod(comboBox_Zakazka.Text), comboBox_Koeficient.Text, Convert.ToString(comboBox_mesiac.SelectedIndex), comboBox_Rok.Text);
+        }
     }
 }

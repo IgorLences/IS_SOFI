@@ -139,6 +139,35 @@ namespace Informačný_systém_SOFI.classes
 
 
 
+        //Odstrániť z DB
+        public void DeleteFromDb(string table, string condition)
+        {
+            DataSet ds = new DataSet();
+            string query = "";
+
+            if (!string.IsNullOrEmpty(condition))
+            {
+                query = "DELETE FROM heroku_db3c94d1d9b65dd." + table + " WHERE " + condition + ";";
+            }
+
+            try
+            {
+                this.Connect();
+                MySqlCommand cmd = new MySqlCommand(query, this.databaseConnection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                adapter.Fill(ds);
+                this.Disconnect();
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+        }
+
+
+
         //Vybrať z DB
         public DataTable SelectFromDb(string table, string columms, string condition)
         {

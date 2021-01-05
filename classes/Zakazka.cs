@@ -202,5 +202,21 @@ namespace Informačný_systém_SOFI.classes
 
         }
 
+
+
+        // Odstránenie existujúceho záznamu v tabulke zakazky v DB
+        public static void DeleteZakazku(string kodzakazky)
+        {
+            if (!string.IsNullOrEmpty(kodzakazky))
+            {
+                string Condition = " KodZakazky = '" + kodzakazky + "'";
+                dBConnection.DeleteFromDb("zakazky", Condition);
+            }
+            else
+            {
+                MessageBox.Show("Chyba : Vyplnte všetky voľné políčka");
+            }
+        }
+
     }
 }

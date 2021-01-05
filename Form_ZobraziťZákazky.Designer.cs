@@ -68,6 +68,7 @@ namespace Informačný_systém_SOFI
             this.label_PracovnaPozicia = new System.Windows.Forms.Label();
             this.button_Zobraziť = new System.Windows.Forms.Button();
             this.labelMeno = new System.Windows.Forms.Label();
+            this.button_Odstrániť = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Zákazka)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -154,6 +155,7 @@ namespace Informačný_systém_SOFI
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button_Odstrániť);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.comboBox_Odberatelia);
@@ -254,7 +256,7 @@ namespace Informačný_systém_SOFI
             this.button_UpdateZakazku.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_UpdateZakazku.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button_UpdateZakazku.ForeColor = System.Drawing.Color.White;
-            this.button_UpdateZakazku.Location = new System.Drawing.Point(152, 740);
+            this.button_UpdateZakazku.Location = new System.Drawing.Point(39, 746);
             this.button_UpdateZakazku.Name = "button_UpdateZakazku";
             this.button_UpdateZakazku.Size = new System.Drawing.Size(181, 43);
             this.button_UpdateZakazku.TabIndex = 118;
@@ -584,6 +586,22 @@ namespace Informačný_systém_SOFI
             this.labelMeno.TabIndex = 95;
             this.labelMeno.Text = "Názov";
             // 
+            // button_Odstrániť
+            // 
+            this.button_Odstrániť.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_Odstrániť.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
+            this.button_Odstrániť.FlatAppearance.BorderSize = 0;
+            this.button_Odstrániť.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Odstrániť.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button_Odstrániť.ForeColor = System.Drawing.Color.White;
+            this.button_Odstrániť.Location = new System.Drawing.Point(281, 746);
+            this.button_Odstrániť.Name = "button_Odstrániť";
+            this.button_Odstrániť.Size = new System.Drawing.Size(181, 43);
+            this.button_Odstrániť.TabIndex = 129;
+            this.button_Odstrániť.Text = "Odstrániť";
+            this.button_Odstrániť.UseVisualStyleBackColor = false;
+            this.button_Odstrániť.Click += new System.EventHandler(this.button_Odstrániť_Click);
+            // 
             // Form_ZobraziťZákazky
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -646,5 +664,6 @@ namespace Informačný_systém_SOFI
         private System.Windows.Forms.DataGridViewTextBoxColumn RozpocetNaMontaz;
         private System.Windows.Forms.DataGridViewTextBoxColumn VycerpanyRozpocet;
         private System.Windows.Forms.DataGridViewTextBoxColumn Koeficient;
+        private System.Windows.Forms.Button button_Odstrániť;
     }
 }

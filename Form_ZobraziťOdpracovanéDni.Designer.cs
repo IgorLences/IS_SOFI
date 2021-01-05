@@ -31,7 +31,27 @@ namespace Informačný_systém_SOFI
         {
             this.lblNazov = new System.Windows.Forms.Label();
             this.dataGridView_OdpracovanyDen = new System.Windows.Forms.DataGridView();
+            this.IDOdpracovaneDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MenoZamestnanca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NazovZakazky = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Datum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OdpracovanyCas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Koeficient = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CenaPrace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBox_Zakazka2 = new System.Windows.Forms.ComboBox();
+            this.comboBox_Zamestnanec2 = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.labelDatumZalozenia = new System.Windows.Forms.Label();
+            this.textBox_DatumPrace = new System.Windows.Forms.TextBox();
+            this.button_UpdateOdpracovaneDni = new System.Windows.Forms.Button();
+            this.comboBox_Koeficient2 = new System.Windows.Forms.ComboBox();
+            this.labelKoeficient = new System.Windows.Forms.Label();
+            this.labelOdpracopvanyCas = new System.Windows.Forms.Label();
+            this.textBox_OdpracovanýČas = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.comboBox_Rok = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox_mesiac = new System.Windows.Forms.ComboBox();
@@ -46,26 +66,7 @@ namespace Informačný_systém_SOFI
             this.label_PracovnaPozicia = new System.Windows.Forms.Label();
             this.button_Zobraziť = new System.Windows.Forms.Button();
             this.labelMeno = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBox_Zakazka2 = new System.Windows.Forms.ComboBox();
-            this.comboBox_Zamestnanec2 = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.labelDatumZalozenia = new System.Windows.Forms.Label();
-            this.textBox_DatumPrace = new System.Windows.Forms.TextBox();
-            this.button_UpdateOdpracovaneDni = new System.Windows.Forms.Button();
-            this.comboBox_Koeficient2 = new System.Windows.Forms.ComboBox();
-            this.labelKoeficient = new System.Windows.Forms.Label();
-            this.labelOdpracopvanyCas = new System.Windows.Forms.Label();
-            this.textBox_OdpracovanýČas = new System.Windows.Forms.TextBox();
-            this.IDOdpracovaneDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MenoZamestnanca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NazovZakazky = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Datum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OdpracovanyCas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Koeficient = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CenaPrace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button_Odstrániť = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_OdpracovanyDen)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -105,8 +106,51 @@ namespace Informačný_systém_SOFI
             this.dataGridView_OdpracovanyDen.TabIndex = 7;
             this.dataGridView_OdpracovanyDen.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dataGridView_OdpracovanyDen_RowStateChanged);
             // 
+            // IDOdpracovaneDni
+            // 
+            this.IDOdpracovaneDni.DataPropertyName = "IDOdpracovaneDni";
+            this.IDOdpracovaneDni.HeaderText = "ID odpracovaný deň";
+            this.IDOdpracovaneDni.Name = "IDOdpracovaneDni";
+            // 
+            // MenoZamestnanca
+            // 
+            this.MenoZamestnanca.DataPropertyName = "FullName";
+            this.MenoZamestnanca.HeaderText = "Meno";
+            this.MenoZamestnanca.Name = "MenoZamestnanca";
+            // 
+            // NazovZakazky
+            // 
+            this.NazovZakazky.DataPropertyName = "NazovZakazky";
+            this.NazovZakazky.HeaderText = "Zákazka";
+            this.NazovZakazky.Name = "NazovZakazky";
+            // 
+            // Datum
+            // 
+            this.Datum.DataPropertyName = "Datum";
+            this.Datum.HeaderText = "Dátum práce";
+            this.Datum.Name = "Datum";
+            // 
+            // OdpracovanyCas
+            // 
+            this.OdpracovanyCas.DataPropertyName = "OdpracovanyCas";
+            this.OdpracovanyCas.HeaderText = "Odpracovaný čas";
+            this.OdpracovanyCas.Name = "OdpracovanyCas";
+            // 
+            // Koeficient
+            // 
+            this.Koeficient.DataPropertyName = "Koeficient";
+            this.Koeficient.HeaderText = "Koeficient";
+            this.Koeficient.Name = "Koeficient";
+            // 
+            // CenaPrace
+            // 
+            this.CenaPrace.DataPropertyName = "CenaPrace";
+            this.CenaPrace.HeaderText = "Cena práce";
+            this.CenaPrace.Name = "CenaPrace";
+            // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button_Odstrániť);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.comboBox_Zakazka2);
             this.panel1.Controls.Add(this.comboBox_Zamestnanec2);
@@ -139,6 +183,169 @@ namespace Informačný_systém_SOFI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(500, 825);
             this.panel1.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(83, 579);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(66, 21);
+            this.label5.TabIndex = 141;
+            this.label5.Text = "Zákazka";
+            // 
+            // comboBox_Zakazka2
+            // 
+            this.comboBox_Zakazka2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox_Zakazka2.BackColor = System.Drawing.Color.White;
+            this.comboBox_Zakazka2.DisplayMember = "1";
+            this.comboBox_Zakazka2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox_Zakazka2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.comboBox_Zakazka2.FormattingEnabled = true;
+            this.comboBox_Zakazka2.Location = new System.Drawing.Point(254, 576);
+            this.comboBox_Zakazka2.Name = "comboBox_Zakazka2";
+            this.comboBox_Zakazka2.Size = new System.Drawing.Size(156, 29);
+            this.comboBox_Zakazka2.TabIndex = 140;
+            // 
+            // comboBox_Zamestnanec2
+            // 
+            this.comboBox_Zamestnanec2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox_Zamestnanec2.BackColor = System.Drawing.Color.White;
+            this.comboBox_Zamestnanec2.DisplayMember = "1";
+            this.comboBox_Zamestnanec2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox_Zamestnanec2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.comboBox_Zamestnanec2.FormattingEnabled = true;
+            this.comboBox_Zamestnanec2.Items.AddRange(new object[] {
+            "Igor Lenčéš"});
+            this.comboBox_Zamestnanec2.Location = new System.Drawing.Point(254, 541);
+            this.comboBox_Zamestnanec2.Name = "comboBox_Zamestnanec2";
+            this.comboBox_Zamestnanec2.Size = new System.Drawing.Size(156, 29);
+            this.comboBox_Zamestnanec2.TabIndex = 139;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(83, 544);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(106, 21);
+            this.label8.TabIndex = 138;
+            this.label8.Text = "Zamestnanec";
+            // 
+            // labelDatumZalozenia
+            // 
+            this.labelDatumZalozenia.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelDatumZalozenia.AutoSize = true;
+            this.labelDatumZalozenia.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelDatumZalozenia.ForeColor = System.Drawing.Color.White;
+            this.labelDatumZalozenia.Location = new System.Drawing.Point(83, 614);
+            this.labelDatumZalozenia.Name = "labelDatumZalozenia";
+            this.labelDatumZalozenia.Size = new System.Drawing.Size(103, 21);
+            this.labelDatumZalozenia.TabIndex = 135;
+            this.labelDatumZalozenia.Text = "Dátum práce";
+            // 
+            // textBox_DatumPrace
+            // 
+            this.textBox_DatumPrace.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox_DatumPrace.BackColor = System.Drawing.Color.White;
+            this.textBox_DatumPrace.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_DatumPrace.Location = new System.Drawing.Point(254, 611);
+            this.textBox_DatumPrace.Name = "textBox_DatumPrace";
+            this.textBox_DatumPrace.Size = new System.Drawing.Size(156, 29);
+            this.textBox_DatumPrace.TabIndex = 131;
+            // 
+            // button_UpdateOdpracovaneDni
+            // 
+            this.button_UpdateOdpracovaneDni.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_UpdateOdpracovaneDni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
+            this.button_UpdateOdpracovaneDni.FlatAppearance.BorderSize = 0;
+            this.button_UpdateOdpracovaneDni.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_UpdateOdpracovaneDni.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button_UpdateOdpracovaneDni.ForeColor = System.Drawing.Color.White;
+            this.button_UpdateOdpracovaneDni.Location = new System.Drawing.Point(39, 736);
+            this.button_UpdateOdpracovaneDni.Name = "button_UpdateOdpracovaneDni";
+            this.button_UpdateOdpracovaneDni.Size = new System.Drawing.Size(191, 43);
+            this.button_UpdateOdpracovaneDni.TabIndex = 134;
+            this.button_UpdateOdpracovaneDni.Text = "Uložiť zmeny";
+            this.button_UpdateOdpracovaneDni.UseVisualStyleBackColor = false;
+            this.button_UpdateOdpracovaneDni.Click += new System.EventHandler(this.button_UpdateOdpracovaneDni_Click);
+            // 
+            // comboBox_Koeficient2
+            // 
+            this.comboBox_Koeficient2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox_Koeficient2.BackColor = System.Drawing.Color.White;
+            this.comboBox_Koeficient2.DisplayMember = "1";
+            this.comboBox_Koeficient2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox_Koeficient2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.comboBox_Koeficient2.FormattingEnabled = true;
+            this.comboBox_Koeficient2.Items.AddRange(new object[] {
+            "SK",
+            "EU1",
+            "EU2"});
+            this.comboBox_Koeficient2.Location = new System.Drawing.Point(254, 681);
+            this.comboBox_Koeficient2.Name = "comboBox_Koeficient2";
+            this.comboBox_Koeficient2.Size = new System.Drawing.Size(156, 29);
+            this.comboBox_Koeficient2.TabIndex = 133;
+            // 
+            // labelKoeficient
+            // 
+            this.labelKoeficient.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelKoeficient.AutoSize = true;
+            this.labelKoeficient.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelKoeficient.ForeColor = System.Drawing.Color.White;
+            this.labelKoeficient.Location = new System.Drawing.Point(83, 684);
+            this.labelKoeficient.Name = "labelKoeficient";
+            this.labelKoeficient.Size = new System.Drawing.Size(85, 21);
+            this.labelKoeficient.TabIndex = 137;
+            this.labelKoeficient.Text = "Koeficient";
+            // 
+            // labelOdpracopvanyCas
+            // 
+            this.labelOdpracopvanyCas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelOdpracopvanyCas.AutoSize = true;
+            this.labelOdpracopvanyCas.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelOdpracopvanyCas.ForeColor = System.Drawing.Color.White;
+            this.labelOdpracopvanyCas.Location = new System.Drawing.Point(83, 649);
+            this.labelOdpracopvanyCas.Name = "labelOdpracopvanyCas";
+            this.labelOdpracopvanyCas.Size = new System.Drawing.Size(134, 21);
+            this.labelOdpracopvanyCas.TabIndex = 136;
+            this.labelOdpracopvanyCas.Text = "Odpracovaný čas";
+            // 
+            // textBox_OdpracovanýČas
+            // 
+            this.textBox_OdpracovanýČas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox_OdpracovanýČas.BackColor = System.Drawing.Color.White;
+            this.textBox_OdpracovanýČas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_OdpracovanýČas.Location = new System.Drawing.Point(254, 646);
+            this.textBox_OdpracovanýČas.Name = "textBox_OdpracovanýČas";
+            this.textBox_OdpracovanýČas.Size = new System.Drawing.Size(156, 29);
+            this.textBox_OdpracovanýČas.TabIndex = 132;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.ForeColor = System.Drawing.SystemColors.Info;
+            this.label6.Location = new System.Drawing.Point(32, 469);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(81, 25);
+            this.label6.TabIndex = 130;
+            this.label6.Text = "Upraviť ";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label7.ForeColor = System.Drawing.SystemColors.Info;
+            this.label7.Location = new System.Drawing.Point(32, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 25);
+            this.label7.TabIndex = 129;
+            this.label7.Text = "Vyhladať";
             // 
             // comboBox_Rok
             // 
@@ -353,210 +560,21 @@ namespace Informačný_systém_SOFI
             this.labelMeno.TabIndex = 95;
             this.labelMeno.Text = "Zamestnanec";
             // 
-            // label6
+            // button_Odstrániť
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.ForeColor = System.Drawing.SystemColors.Info;
-            this.label6.Location = new System.Drawing.Point(32, 469);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(81, 25);
-            this.label6.TabIndex = 130;
-            this.label6.Text = "Upraviť ";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.ForeColor = System.Drawing.SystemColors.Info;
-            this.label7.Location = new System.Drawing.Point(32, 9);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(89, 25);
-            this.label7.TabIndex = 129;
-            this.label7.Text = "Vyhladať";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(83, 579);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 21);
-            this.label5.TabIndex = 141;
-            this.label5.Text = "Zákazka";
-            // 
-            // comboBox_Zakazka2
-            // 
-            this.comboBox_Zakazka2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox_Zakazka2.BackColor = System.Drawing.Color.White;
-            this.comboBox_Zakazka2.DisplayMember = "1";
-            this.comboBox_Zakazka2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox_Zakazka2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.comboBox_Zakazka2.FormattingEnabled = true;
-            this.comboBox_Zakazka2.Location = new System.Drawing.Point(254, 576);
-            this.comboBox_Zakazka2.Name = "comboBox_Zakazka2";
-            this.comboBox_Zakazka2.Size = new System.Drawing.Size(156, 29);
-            this.comboBox_Zakazka2.TabIndex = 140;
-            // 
-            // comboBox_Zamestnanec2
-            // 
-            this.comboBox_Zamestnanec2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox_Zamestnanec2.BackColor = System.Drawing.Color.White;
-            this.comboBox_Zamestnanec2.DisplayMember = "1";
-            this.comboBox_Zamestnanec2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox_Zamestnanec2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.comboBox_Zamestnanec2.FormattingEnabled = true;
-            this.comboBox_Zamestnanec2.Items.AddRange(new object[] {
-            "Igor Lenčéš"});
-            this.comboBox_Zamestnanec2.Location = new System.Drawing.Point(254, 541);
-            this.comboBox_Zamestnanec2.Name = "comboBox_Zamestnanec2";
-            this.comboBox_Zamestnanec2.Size = new System.Drawing.Size(156, 29);
-            this.comboBox_Zamestnanec2.TabIndex = 139;
-            // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(83, 544);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(106, 21);
-            this.label8.TabIndex = 138;
-            this.label8.Text = "Zamestnanec";
-            // 
-            // labelDatumZalozenia
-            // 
-            this.labelDatumZalozenia.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelDatumZalozenia.AutoSize = true;
-            this.labelDatumZalozenia.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelDatumZalozenia.ForeColor = System.Drawing.Color.White;
-            this.labelDatumZalozenia.Location = new System.Drawing.Point(83, 614);
-            this.labelDatumZalozenia.Name = "labelDatumZalozenia";
-            this.labelDatumZalozenia.Size = new System.Drawing.Size(103, 21);
-            this.labelDatumZalozenia.TabIndex = 135;
-            this.labelDatumZalozenia.Text = "Dátum práce";
-            // 
-            // textBox_DatumPrace
-            // 
-            this.textBox_DatumPrace.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox_DatumPrace.BackColor = System.Drawing.Color.White;
-            this.textBox_DatumPrace.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_DatumPrace.Location = new System.Drawing.Point(254, 611);
-            this.textBox_DatumPrace.Name = "textBox_DatumPrace";
-            this.textBox_DatumPrace.Size = new System.Drawing.Size(156, 29);
-            this.textBox_DatumPrace.TabIndex = 131;
-            // 
-            // button_UpdateOdpracovaneDni
-            // 
-            this.button_UpdateOdpracovaneDni.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button_UpdateOdpracovaneDni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
-            this.button_UpdateOdpracovaneDni.FlatAppearance.BorderSize = 0;
-            this.button_UpdateOdpracovaneDni.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_UpdateOdpracovaneDni.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button_UpdateOdpracovaneDni.ForeColor = System.Drawing.Color.White;
-            this.button_UpdateOdpracovaneDni.Location = new System.Drawing.Point(147, 734);
-            this.button_UpdateOdpracovaneDni.Name = "button_UpdateOdpracovaneDni";
-            this.button_UpdateOdpracovaneDni.Size = new System.Drawing.Size(191, 43);
-            this.button_UpdateOdpracovaneDni.TabIndex = 134;
-            this.button_UpdateOdpracovaneDni.Text = "Uložiť zmeny";
-            this.button_UpdateOdpracovaneDni.UseVisualStyleBackColor = false;
-            this.button_UpdateOdpracovaneDni.Click += new System.EventHandler(this.button_UpdateOdpracovaneDni_Click);
-            // 
-            // comboBox_Koeficient2
-            // 
-            this.comboBox_Koeficient2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox_Koeficient2.BackColor = System.Drawing.Color.White;
-            this.comboBox_Koeficient2.DisplayMember = "1";
-            this.comboBox_Koeficient2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox_Koeficient2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.comboBox_Koeficient2.FormattingEnabled = true;
-            this.comboBox_Koeficient2.Items.AddRange(new object[] {
-            "SK",
-            "EU1",
-            "EU2"});
-            this.comboBox_Koeficient2.Location = new System.Drawing.Point(254, 681);
-            this.comboBox_Koeficient2.Name = "comboBox_Koeficient2";
-            this.comboBox_Koeficient2.Size = new System.Drawing.Size(156, 29);
-            this.comboBox_Koeficient2.TabIndex = 133;
-            // 
-            // labelKoeficient
-            // 
-            this.labelKoeficient.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelKoeficient.AutoSize = true;
-            this.labelKoeficient.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelKoeficient.ForeColor = System.Drawing.Color.White;
-            this.labelKoeficient.Location = new System.Drawing.Point(83, 684);
-            this.labelKoeficient.Name = "labelKoeficient";
-            this.labelKoeficient.Size = new System.Drawing.Size(85, 21);
-            this.labelKoeficient.TabIndex = 137;
-            this.labelKoeficient.Text = "Koeficient";
-            // 
-            // labelOdpracopvanyCas
-            // 
-            this.labelOdpracopvanyCas.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelOdpracopvanyCas.AutoSize = true;
-            this.labelOdpracopvanyCas.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelOdpracopvanyCas.ForeColor = System.Drawing.Color.White;
-            this.labelOdpracopvanyCas.Location = new System.Drawing.Point(83, 649);
-            this.labelOdpracopvanyCas.Name = "labelOdpracopvanyCas";
-            this.labelOdpracopvanyCas.Size = new System.Drawing.Size(134, 21);
-            this.labelOdpracopvanyCas.TabIndex = 136;
-            this.labelOdpracopvanyCas.Text = "Odpracovaný čas";
-            // 
-            // textBox_OdpracovanýČas
-            // 
-            this.textBox_OdpracovanýČas.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox_OdpracovanýČas.BackColor = System.Drawing.Color.White;
-            this.textBox_OdpracovanýČas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_OdpracovanýČas.Location = new System.Drawing.Point(254, 646);
-            this.textBox_OdpracovanýČas.Name = "textBox_OdpracovanýČas";
-            this.textBox_OdpracovanýČas.Size = new System.Drawing.Size(156, 29);
-            this.textBox_OdpracovanýČas.TabIndex = 132;
-            // 
-            // IDOdpracovaneDni
-            // 
-            this.IDOdpracovaneDni.DataPropertyName = "IDOdpracovaneDni";
-            this.IDOdpracovaneDni.HeaderText = "ID odpracovaný deň";
-            this.IDOdpracovaneDni.Name = "IDOdpracovaneDni";
-            // 
-            // MenoZamestnanca
-            // 
-            this.MenoZamestnanca.DataPropertyName = "FullName";
-            this.MenoZamestnanca.HeaderText = "Meno";
-            this.MenoZamestnanca.Name = "MenoZamestnanca";
-            // 
-            // NazovZakazky
-            // 
-            this.NazovZakazky.DataPropertyName = "NazovZakazky";
-            this.NazovZakazky.HeaderText = "Zákazka";
-            this.NazovZakazky.Name = "NazovZakazky";
-            // 
-            // Datum
-            // 
-            this.Datum.DataPropertyName = "Datum";
-            this.Datum.HeaderText = "Dátum práce";
-            this.Datum.Name = "Datum";
-            // 
-            // OdpracovanyCas
-            // 
-            this.OdpracovanyCas.DataPropertyName = "OdpracovanyCas";
-            this.OdpracovanyCas.HeaderText = "Odpracovaný čas";
-            this.OdpracovanyCas.Name = "OdpracovanyCas";
-            // 
-            // Koeficient
-            // 
-            this.Koeficient.DataPropertyName = "Koeficient";
-            this.Koeficient.HeaderText = "Koeficient";
-            this.Koeficient.Name = "Koeficient";
-            // 
-            // CenaPrace
-            // 
-            this.CenaPrace.DataPropertyName = "CenaPrace";
-            this.CenaPrace.HeaderText = "Cena práce";
-            this.CenaPrace.Name = "CenaPrace";
+            this.button_Odstrániť.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_Odstrániť.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
+            this.button_Odstrániť.FlatAppearance.BorderSize = 0;
+            this.button_Odstrániť.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Odstrániť.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button_Odstrániť.ForeColor = System.Drawing.Color.White;
+            this.button_Odstrániť.Location = new System.Drawing.Point(271, 736);
+            this.button_Odstrániť.Name = "button_Odstrániť";
+            this.button_Odstrániť.Size = new System.Drawing.Size(191, 43);
+            this.button_Odstrániť.TabIndex = 142;
+            this.button_Odstrániť.Text = "Odstrániť";
+            this.button_Odstrániť.UseVisualStyleBackColor = false;
+            this.button_Odstrániť.Click += new System.EventHandler(this.button_Odstrániť_Click);
             // 
             // Form_ZobraziťOdpracovanéDni
             // 
@@ -618,5 +636,6 @@ namespace Informačný_systém_SOFI
         private System.Windows.Forms.DataGridViewTextBoxColumn OdpracovanyCas;
         private System.Windows.Forms.DataGridViewTextBoxColumn Koeficient;
         private System.Windows.Forms.DataGridViewTextBoxColumn CenaPrace;
+        private System.Windows.Forms.Button button_Odstrániť;
     }
 }

@@ -113,5 +113,21 @@ namespace Informačný_systém_SOFI.classes
 
             dBConnection.FillDataGridView("odpracovane_dni", "odpracovane_dni.IDOdpracovaneDni, CONCAT(zamestnanci.Meno, ' ', zamestnanci.Priezvisko) AS FullName, zakazky.NazovZakazky , odpracovane_dni.Datum, odpracovane_dni.OdpracovanyCas, odpracovane_dni.Koeficient, odpracovane_dni.CenaPrace ", condition, DGV, "zamestnanci ON odpracovane_dni.IDZamestnanec = zamestnanci.idzamestnanci", "zakazky ON odpracovane_dni.KodZakazka = zakazky.KodZakazky");
         }
+
+
+
+        // Odstránenie existujúceho záznamu v tabulke odpracovany_den v DB
+        public static void DeleteOdpracovanyDeň(string idodpracovanyden)
+        {
+            if (!string.IsNullOrEmpty(idodpracovanyden))
+            {
+                string Condition = " IDOdpracovaneDni = '" + idodpracovanyden + "'";
+                dBConnection.DeleteFromDb("odpracovane_dni", Condition);
+            }
+            else
+            {
+                MessageBox.Show("Chyba : Vyplnte všetky voľné políčka");
+            }
+        }
     }
 }

@@ -107,7 +107,21 @@ namespace Informačný_systém_SOFI.classes
             {
                 MessageBox.Show("Chyba : Vyplnte všetky voľné políčka");
             }
+        }
 
+
+        // Odstránenie existujúceho záznamu v tabulke odberatelia v DB
+        public static void DeleteOdberatel(string idodberatela)
+        {
+            if (!string.IsNullOrEmpty(idodberatela))
+            {
+                string Condition = " Idodberateľ = '" + idodberatela + "'";
+                dBConnection.DeleteFromDb("odberatelia",Condition);
+            }
+            else
+            {
+                MessageBox.Show("Chyba : Vyplnte všetky voľné políčka");
+            }
         }
     }
 }
