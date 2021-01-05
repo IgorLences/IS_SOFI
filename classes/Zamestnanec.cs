@@ -11,10 +11,14 @@ using MySql.Data.MySqlClient;
 
 namespace Informačný_systém_SOFI.classes
 {
+    //class na prácu s DB tabulkou zamestnanci
     public class Zamestnanec
     {
         private static DBConnection dBConnection = new DBConnection();
 
+
+
+        //Vložiť nový záznam zamestnanca do DB
         public static void UlozZamestnanca(string meno, string priezvisko, string pracovnapozicia, string hodinovamzda)
         {
             if (!string.IsNullOrEmpty(meno) && !string.IsNullOrEmpty(priezvisko) && !string.IsNullOrEmpty(pracovnapozicia) && !string.IsNullOrEmpty(hodinovamzda))
@@ -29,6 +33,9 @@ namespace Informačný_systém_SOFI.classes
 
         }
 
+
+
+        // Úprava už existujúceho záznamu v tabulke zamestnanci v DB
         public static void UpdateZamestnanca(string ID, string meno, string priezvisko, string pracovnapozicia, string hodinovamzda)
         {
             if (!string.IsNullOrEmpty(meno) && !string.IsNullOrEmpty(priezvisko) && !string.IsNullOrEmpty(pracovnapozicia) && !string.IsNullOrEmpty(hodinovamzda))
@@ -43,6 +50,9 @@ namespace Informačný_systém_SOFI.classes
 
         }
 
+
+
+        // Získanie ID zamestnanca pomocou mena zamestnanca
         public static string GetID(string menoZamestnanec)
         {
 
@@ -55,12 +65,13 @@ namespace Informačný_systém_SOFI.classes
                 return idzamestnanec;
             }
             return null;
-
-
         }
+
+
+
+        // Získanie hodinovej mzdy pomocou mena zamestnanca
         public static double GetHodinaMzda (string menoZamestnanec)
         {
-
             char[] separators = new char[] { ' ' };
             string[] subs = menoZamestnanec.Split(separators, StringSplitOptions.RemoveEmptyEntries);
             DataTable dt = dBConnection.SelectFromDb("zamestnanci", "*", "Meno= '" + subs[0] + "' AND Priezvisko= '" + subs[1] + "'");
@@ -70,26 +81,42 @@ namespace Informačný_systém_SOFI.classes
             return hodinovamzda;
         }
 
+
+
+        //Vybranie zoznamu celých mien zamestnancov z DB a uloženie ich do ComboBoxu
         public static void FillComboBoxMeno(ComboBox comboBox)
         {
             dBConnection.FillComboBox("zamestnanci", "CONCAT(Meno, ' ' , Priezvisko) AS FullName", comboBox);
         }
 
+
+
+        //Vybranie zoznamu ID zamestnancov z DB a uloženie ich do ComboBoxu
         public static void FillComboBoxID(ComboBox comboBox)
         {
             dBConnection.FillComboBox("zamestnanci", "idzamestnanci", comboBox);
         }
 
+
+
+        //Vybranie zoznamu už vložených pracovných pozícií z DB a uloženie ich do ComboBoxu
         public static void FillComboBoxPracovnaPozicia(ComboBox comboBox)
         {
             dBConnection.FillComboBox("zamestnanci", "PracovnaPozicia", comboBox);
         }
 
+
+
+        //Vybrať tabulku zamestnanci z DB a uložiť do DataGridView pre zobrazenie dát
         public static void FillDGVAllZamestnanci(DataGridView DGV)
         {
             dBConnection.FillDataGridView("zamestnanci","*","",DGV);
         }
-         public static void FillDGVSelectZamestnanci(DataGridView DGV,string meno,string idzamestnanca, string pracovnapozicia)
+
+
+
+        //Vybrať určité riadky z tabuľky zamestnanci z DB a uložiť do DataGridView pre zobrazenie dát
+        public static void FillDGVSelectZamestnanci(DataGridView DGV,string meno,string idzamestnanca, string pracovnapozicia)
         {
             string condition;
             string priezvisko = "Priezvisko";
