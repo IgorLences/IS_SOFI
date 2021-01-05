@@ -9,11 +9,12 @@ using System.Windows.Forms;
 
 namespace Informačný_systém_SOFI.classes
 {
+    //class na používanie side Menu
     public class SideMenu
     {
         private static Form activeForm = null;
 
-
+        //zobrazenie child form (napr. Form_PridaťOdberateľa) v paneli 
         public static void zobrazChildForm(Form childForm, Panel panelChildForm)
         {
             if (activeForm != null) activeForm.Close();
@@ -27,7 +28,7 @@ namespace Informačný_systém_SOFI.classes
             childForm.Show();
         }
 
-
+        //zobrazenie sub menu (dalšie buttony pod hlavným button)
         public static void zobrazSubMenu(Panel SubMenu, Panel[] SubMenus)
         {
             if (SubMenu.Visible == false)
@@ -38,7 +39,7 @@ namespace Informačný_systém_SOFI.classes
             else SubMenu.Visible = false;
         }
 
-
+        //skrytie sub menu (dalšie buttony pod hlavným button)
         public static void skryťSubMenu(Panel[] SubMenus)
         {
             foreach (Panel subMenu in SubMenus)
