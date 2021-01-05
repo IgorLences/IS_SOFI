@@ -137,8 +137,6 @@ namespace Informačný_systém_SOFI.classes
             condition = " Meno = " + meno + " AND Priezvisko = " + priezvisko + " AND idzamestnanci = " + idzamestnanca + " AND PracovnaPozicia = " + pracovnapozicia;
 
             dBConnection.FillDataGridView("zamestnanci", "*", condition, DGV);
-         
-
         }
 
     }

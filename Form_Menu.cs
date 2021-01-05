@@ -18,8 +18,7 @@ namespace Informačný_systém_SOFI
 
         public Form_Menu()
         {
-            InitializeComponent();
-            
+            InitializeComponent();            
         }
         
 
@@ -31,6 +30,8 @@ namespace Informačný_systém_SOFI
             SubMenus[2] = panel_SubMenu_Dochádzka;
             SubMenus[3] = panel_SubMenu_Odberatelia;
 
+
+            //skrytie sub menu (dalšie buttony pod hlavným button)
             SideMenu.skryťSubMenu(SubMenus);
 
             //vytvoríme objekt okna a zobrazíme ho ako dialóg
@@ -47,26 +48,12 @@ namespace Informačný_systém_SOFI
                 label_Prihlásenie.Visible = false;
             }
 
-
-            /* MySqlCommand commandDatabase = new MySqlCommand("INSERT INTO zasielky values (148,13,1,12,15,2,12);", databaseConnection);
-                commandDatabase.CommandTimeout = 60;
-
-                try
-                {
-                    databaseConnection.Open();
-                    commandDatabase.ExecuteNonQuery();
-                    databaseConnection.Close();
-                }
-                catch(MySqlException ex)
-                {
-
-                }*/
         }
 
 
 
 
-
+        //zobrazenie sub menu (dalšie buttony pod hlavným button)
         private void button_Zákazky_Click(object sender, EventArgs e)
         {
             SideMenu.zobrazSubMenu(panel_SubMenu_Zákazky, SubMenus);

@@ -52,6 +52,7 @@ namespace Informačný_systém_SOFI
             this.button_Prihlásiť.TabIndex = 77;
             this.button_Prihlásiť.Text = "Prihlásiť";
             this.button_Prihlásiť.UseVisualStyleBackColor = false;
+            this.button_Prihlásiť.Click += new System.EventHandler(this.button_Prihlásiť_Click);
             // 
             // label_Používateľ
             // 

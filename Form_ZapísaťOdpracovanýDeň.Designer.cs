@@ -32,7 +32,7 @@ namespace Informačný_systém_SOFI
             this.lblNazov = new System.Windows.Forms.Label();
             this.labelDatumZalozenia = new System.Windows.Forms.Label();
             this.textBox_DatumPrace = new System.Windows.Forms.TextBox();
-            this.button_VytvoritNovuZakazku = new System.Windows.Forms.Button();
+            this.button_ZapísaťOdpracovanýDeň = new System.Windows.Forms.Button();
             this.comboBox_Koeficient = new System.Windows.Forms.ComboBox();
             this.labelKoeficient = new System.Windows.Forms.Label();
             this.labelOdpracopvanyCas = new System.Windows.Forms.Label();
@@ -76,21 +76,21 @@ namespace Informačný_systém_SOFI
             this.textBox_DatumPrace.Size = new System.Drawing.Size(156, 29);
             this.textBox_DatumPrace.TabIndex = 77;
             // 
-            // button_VytvoritNovuZakazku
+            // button_ZapísaťOdpracovanýDeň
             // 
-            this.button_VytvoritNovuZakazku.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button_VytvoritNovuZakazku.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
-            this.button_VytvoritNovuZakazku.FlatAppearance.BorderSize = 0;
-            this.button_VytvoritNovuZakazku.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_VytvoritNovuZakazku.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button_VytvoritNovuZakazku.ForeColor = System.Drawing.Color.White;
-            this.button_VytvoritNovuZakazku.Location = new System.Drawing.Point(551, 487);
-            this.button_VytvoritNovuZakazku.Name = "button_VytvoritNovuZakazku";
-            this.button_VytvoritNovuZakazku.Size = new System.Drawing.Size(191, 43);
-            this.button_VytvoritNovuZakazku.TabIndex = 81;
-            this.button_VytvoritNovuZakazku.Text = "Uložiť odpracovaný čas";
-            this.button_VytvoritNovuZakazku.UseVisualStyleBackColor = false;
-            this.button_VytvoritNovuZakazku.Click += new System.EventHandler(this.button_VytvoritNovuZakazku_Click);
+            this.button_ZapísaťOdpracovanýDeň.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_ZapísaťOdpracovanýDeň.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
+            this.button_ZapísaťOdpracovanýDeň.FlatAppearance.BorderSize = 0;
+            this.button_ZapísaťOdpracovanýDeň.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_ZapísaťOdpracovanýDeň.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button_ZapísaťOdpracovanýDeň.ForeColor = System.Drawing.Color.White;
+            this.button_ZapísaťOdpracovanýDeň.Location = new System.Drawing.Point(551, 487);
+            this.button_ZapísaťOdpracovanýDeň.Name = "button_ZapísaťOdpracovanýDeň";
+            this.button_ZapísaťOdpracovanýDeň.Size = new System.Drawing.Size(191, 43);
+            this.button_ZapísaťOdpracovanýDeň.TabIndex = 81;
+            this.button_ZapísaťOdpracovanýDeň.Text = "Uložiť odpracovaný čas";
+            this.button_ZapísaťOdpracovanýDeň.UseVisualStyleBackColor = false;
+            this.button_ZapísaťOdpracovanýDeň.Click += new System.EventHandler(this.button_ZapísaťOdpracovanýDeň_Click);
             // 
             // comboBox_Koeficient
             // 
@@ -207,7 +207,7 @@ namespace Informačný_systém_SOFI
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelDatumZalozenia);
             this.Controls.Add(this.textBox_DatumPrace);
-            this.Controls.Add(this.button_VytvoritNovuZakazku);
+            this.Controls.Add(this.button_ZapísaťOdpracovanýDeň);
             this.Controls.Add(this.comboBox_Koeficient);
             this.Controls.Add(this.labelKoeficient);
             this.Controls.Add(this.labelOdpracopvanyCas);
@@ -227,7 +227,7 @@ namespace Informačný_systém_SOFI
         private System.Windows.Forms.Label lblNazov;
         private System.Windows.Forms.Label labelDatumZalozenia;
         private System.Windows.Forms.TextBox textBox_DatumPrace;
-        private System.Windows.Forms.Button button_VytvoritNovuZakazku;
+        private System.Windows.Forms.Button button_ZapísaťOdpracovanýDeň;
         private System.Windows.Forms.ComboBox comboBox_Koeficient;
         private System.Windows.Forms.Label labelKoeficient;
         private System.Windows.Forms.Label labelOdpracopvanyCas;

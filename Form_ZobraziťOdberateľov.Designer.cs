@@ -34,6 +34,8 @@ namespace Informačný_systém_SOFI
             this.Idodberatel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nazov = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.button_UpdateOdberatelov = new System.Windows.Forms.Button();
             this.labelNázov = new System.Windows.Forms.Label();
             this.textBox_NazovOdberatela = new System.Windows.Forms.TextBox();
@@ -41,10 +43,8 @@ namespace Informačný_systém_SOFI
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox_NazovOdberatela = new System.Windows.Forms.ComboBox();
             this.button_ZobraziťVšetko = new System.Windows.Forms.Button();
-            this.button_UložitNovehoZamestnanca = new System.Windows.Forms.Button();
+            this.button_Zobraziť = new System.Windows.Forms.Button();
             this.labelMeno = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Odberatel)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -103,13 +103,35 @@ namespace Informačný_systém_SOFI
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.comboBox_NazovOdberatela);
             this.panel1.Controls.Add(this.button_ZobraziťVšetko);
-            this.panel1.Controls.Add(this.button_UložitNovehoZamestnanca);
+            this.panel1.Controls.Add(this.button_Zobraziť);
             this.panel1.Controls.Add(this.labelMeno);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(800, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(500, 825);
             this.panel1.TabIndex = 10;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.ForeColor = System.Drawing.SystemColors.Info;
+            this.label6.Location = new System.Drawing.Point(30, 469);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(81, 25);
+            this.label6.TabIndex = 130;
+            this.label6.Text = "Upraviť ";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label7.ForeColor = System.Drawing.SystemColors.Info;
+            this.label7.Location = new System.Drawing.Point(30, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 25);
+            this.label7.TabIndex = 129;
+            this.label7.Text = "Vyhladať";
             // 
             // button_UpdateOdberatelov
             // 
@@ -203,21 +225,21 @@ namespace Informačný_systém_SOFI
             this.button_ZobraziťVšetko.UseVisualStyleBackColor = false;
             this.button_ZobraziťVšetko.Click += new System.EventHandler(this.button_ZobraziťVšetko_Click);
             // 
-            // button_UložitNovehoZamestnanca
+            // button_Zobraziť
             // 
-            this.button_UložitNovehoZamestnanca.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button_UložitNovehoZamestnanca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
-            this.button_UložitNovehoZamestnanca.FlatAppearance.BorderSize = 0;
-            this.button_UložitNovehoZamestnanca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_UložitNovehoZamestnanca.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button_UložitNovehoZamestnanca.ForeColor = System.Drawing.Color.White;
-            this.button_UložitNovehoZamestnanca.Location = new System.Drawing.Point(317, 164);
-            this.button_UložitNovehoZamestnanca.Name = "button_UložitNovehoZamestnanca";
-            this.button_UložitNovehoZamestnanca.Size = new System.Drawing.Size(144, 43);
-            this.button_UložitNovehoZamestnanca.TabIndex = 94;
-            this.button_UložitNovehoZamestnanca.Text = "Zobraziť";
-            this.button_UložitNovehoZamestnanca.UseVisualStyleBackColor = false;
-            this.button_UložitNovehoZamestnanca.Click += new System.EventHandler(this.button_UložitNovehoZamestnanca_Click);
+            this.button_Zobraziť.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_Zobraziť.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
+            this.button_Zobraziť.FlatAppearance.BorderSize = 0;
+            this.button_Zobraziť.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Zobraziť.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button_Zobraziť.ForeColor = System.Drawing.Color.White;
+            this.button_Zobraziť.Location = new System.Drawing.Point(317, 164);
+            this.button_Zobraziť.Name = "button_Zobraziť";
+            this.button_Zobraziť.Size = new System.Drawing.Size(144, 43);
+            this.button_Zobraziť.TabIndex = 94;
+            this.button_Zobraziť.Text = "Zobraziť";
+            this.button_Zobraziť.UseVisualStyleBackColor = false;
+            this.button_Zobraziť.Click += new System.EventHandler(this.button_Zobraziť_Click);
             // 
             // labelMeno
             // 
@@ -230,28 +252,6 @@ namespace Informačný_systém_SOFI
             this.labelMeno.Size = new System.Drawing.Size(55, 21);
             this.labelMeno.TabIndex = 95;
             this.labelMeno.Text = "Názov";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.ForeColor = System.Drawing.SystemColors.Info;
-            this.label6.Location = new System.Drawing.Point(30, 469);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(81, 25);
-            this.label6.TabIndex = 130;
-            this.label6.Text = "Upraviť ";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.ForeColor = System.Drawing.SystemColors.Info;
-            this.label7.Location = new System.Drawing.Point(30, 9);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(89, 25);
-            this.label7.TabIndex = 129;
-            this.label7.Text = "Vyhladať";
             // 
             // Form_ZobraziťOdberateľov
             // 
@@ -283,7 +283,7 @@ namespace Informačný_systém_SOFI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox_NazovOdberatela;
         private System.Windows.Forms.Button button_ZobraziťVšetko;
-        private System.Windows.Forms.Button button_UložitNovehoZamestnanca;
+        private System.Windows.Forms.Button button_Zobraziť;
         private System.Windows.Forms.Label labelMeno;
         private System.Windows.Forms.DataGridViewTextBoxColumn Idodberatel;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nazov;

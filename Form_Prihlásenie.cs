@@ -31,24 +31,27 @@ namespace Informačný_systém_SOFI
                 {
                     case 0:
                         {
-                            MessageBox.Show("Cannot connect to server.  Contact administrator");
+                            MessageBox.Show("Nedá sa pripojiť na server.r");
                             e.Cancel = true;
                         }
                         break;
 
                     case 1:
+                        {
+                            MessageBox.Show("Úspešné prihlásenie.");
+                        }
                         break;
 
                     case 1040:
                         {
-                            MessageBox.Show("Too many connections to DB");
+                            MessageBox.Show("Veľa pripojení na server.");
                             e.Cancel = true;
                         }
                         break;
 
                     case 1045:
                         {
-                            MessageBox.Show("Invalid username/password, please try again");
+                            MessageBox.Show("Nesprávne prihlasovacie údaje.");
                             e.Cancel = true;
                         }
                         break;
@@ -61,6 +64,11 @@ namespace Informačný_systém_SOFI
                         break;
                 }
             }
+
+        }
+
+        private void button_Prihlásiť_Click(object sender, EventArgs e)
+        {
 
         }
     }

@@ -12,11 +12,17 @@ namespace Informačný_systém_SOFI
 {
     public partial class Form_PridaťZamestnanca : Form
     {
+
+
+
         public Form_PridaťZamestnanca()
         {
             InitializeComponent();
         }
 
+
+
+        //Vložiť nový záznam zamestnanca do DB
         private void button_UložitNovehoOdberatela_Click(object sender, EventArgs e)
         {               
                 Zamestnanec.UlozZamestnanca( textBox_Meno.Text, textBox_Priezvisko.Text, comboBox_pracovnaPozicia.Text, textBox_HodinovaMzda.Text);
