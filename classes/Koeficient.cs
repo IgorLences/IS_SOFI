@@ -8,6 +8,7 @@ namespace Informačný_systém_SOFI.classes
 {
     class Koeficient
     {
+        // Prevod koeficinetu na číselnú hodnotu
         public static double KoefToDouble(string sKoef)
         {
             double dKoef = 0;

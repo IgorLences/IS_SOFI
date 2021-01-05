@@ -12,10 +12,31 @@ using MySql.Data.MySqlClient;
 
 namespace Informačný_systém_SOFI.classes
 {
+    //class na prácu s DB tabulkou odberatelia
     class Odberatel
     {
         public static DBConnection dBConnection = new DBConnection();
 
+
+
+        //Vložiť nový záznam Odberateľa do DB
+        public static void UlozOdberatel(string nazovodberatela)
+        {
+            if (!string.IsNullOrEmpty(nazovodberatela))
+            {
+                string Query = "('" + nazovodberatela + "')";
+                dBConnection.InsertIntoDB("odberatelia (Nazov) ", Query);
+            }
+            else
+            {
+                MessageBox.Show("Chyba : Vyplnte všetky voľné políčka");
+            }
+
+        }
+
+
+
+        // Získanie IDodberatela pomocou názvu odberatela
         public static string GetID(string menoOdberatela)
         {
             
@@ -31,34 +52,34 @@ namespace Informačný_systém_SOFI.classes
             }
         }
 
+
+
+        //Vybranie zoznamu Názvov z DB a uloženie ich do ComboBoxu
         public static void FillComboBoxNazov (ComboBox comboBox)
         {
             dBConnection.FillComboBox("odberatelia", "Nazov", comboBox);
         }
 
+
+
+        //Vybranie zoznamu IDodberatel z DB a uloženie ich do ComboBoxu
         public static void FillComboBoxID(ComboBox comboBox)
         {
             dBConnection.FillComboBox("odberatelia", "Idodberatel", comboBox);
         }
 
-        public static void UlozOdberatel(string nazovodberatela)
-        {
-            if (!string.IsNullOrEmpty(nazovodberatela))
-            {
-                string Query = "('" + nazovodberatela + "')";
-                dBConnection.InsertIntoDB("odberatelia (Nazov) ", Query);
-            }
-            else
-            {
-                MessageBox.Show("Chyba : Vyplnte všetky voľné políčka");
-            }
 
-        }
 
+
+        //Vybrať tabulku odberatelia z DB a uložiť do DataGridView pre zobrazenie dát
         public static void FillDGVAllOdberatelia(DataGridView DGV)
         {
             dBConnection.FillDataGridView("odberatelia", "*", "", DGV);
         }
+
+
+
+        //Vybrať určité riadky z tabuľky odberatelia z DB a uložiť do DataGridView pre zobrazenie dát
         public static void FillDGVSelectOdberatelia(DataGridView DGV, string idodberatel, string nazov)
         {
             string condition;
@@ -72,6 +93,9 @@ namespace Informačný_systém_SOFI.classes
 
         }
 
+
+
+        // Úprava už existujúceho záznamu v tabulke odberatelia v DB
         public static void UpdateOdberatel(string idodberatela,string nazovodberatela)
         {
             if (!string.IsNullOrEmpty(nazovodberatela))

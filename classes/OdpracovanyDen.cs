@@ -10,12 +10,14 @@ using Informačný_systém_SOFI.classes;
 
 namespace Informačný_systém_SOFI.classes
 {
+    //class na prácu s DB tabulkou odpracovane_dni
     class OdpracovanyDen
     {
        public static DBConnection dBConnection = new DBConnection();
 
 
 
+        //Vložiť nový záznam odpracovane_dni do DB
         public static void  UlozOdpracovanyDen (string menozamestnanec, string menozakazka, string datumprace, string odpracovanycas, string koeficient)
         {
             if (!string.IsNullOrEmpty(menozamestnanec) && !string.IsNullOrEmpty(menozakazka) && !string.IsNullOrEmpty(datumprace) && !string.IsNullOrEmpty(odpracovanycas) && !string.IsNullOrEmpty(koeficient))
@@ -37,6 +39,8 @@ namespace Informačný_systém_SOFI.classes
         }
 
 
+
+        // Úprava už existujúceho záznamu v tabulke odpracovane_dni v DB
         public static void UpdateOdpracovanyDen(string idodpracovanyden, string menozamestnanec, string menozakazka, string datumprace, string odpracovanycas, string koeficient)
         {
             if (!string.IsNullOrEmpty(menozamestnanec) && !string.IsNullOrEmpty(menozakazka) && !string.IsNullOrEmpty(datumprace) && !string.IsNullOrEmpty(odpracovanycas) && !string.IsNullOrEmpty(koeficient))
@@ -57,6 +61,8 @@ namespace Informačný_systém_SOFI.classes
         }
 
 
+
+        // Výpočet ceny práce za odpracovaný deň
         public static double VypCenuPrace (string menozamestnanca,double odpracovanycas ,string sKoeficient)
         {
             double hodinovamzda = Zamestnanec.GetHodinaMzda(menozamestnanca);
@@ -68,13 +74,15 @@ namespace Informačný_systém_SOFI.classes
 
 
 
-
+        //Vybranie zoznamu IDOdpracovaneDni z DB a uloženie ich do ComboBoxu
         public static void FillComboBoxIDodpracovaneDni(ComboBox comboBox)
         {
             dBConnection.FillComboBox("odpracovane_dni", "IDOdpracovaneDni", comboBox);
         }
 
 
+
+        //Vybrať tabulku odpracovane_dni z DB a uložiť do DataGridView pre zobrazenie dát
         public static void FillDGVAllOdpracovaneDni(DataGridView DGV)
         {
             dBConnection.FillDataGridView("odpracovane_dni", "odpracovane_dni.IDOdpracovaneDni, CONCAT(zamestnanci.Meno, ' ', zamestnanci.Priezvisko) AS FullName, zakazky.NazovZakazky , odpracovane_dni.Datum, odpracovane_dni.OdpracovanyCas, odpracovane_dni.Koeficient, odpracovane_dni.CenaPrace ", "", DGV,"zamestnanci ON odpracovane_dni.IDZamestnanec = zamestnanci.idzamestnanci", "zakazky ON odpracovane_dni.KodZakazka = zakazky.KodZakazky");
@@ -82,6 +90,7 @@ namespace Informačný_systém_SOFI.classes
 
 
 
+        //Vybrať určité riadky z tabuľky odpracovane_dni z DB a uložiť do DataGridView pre zobrazenie dát
         public static void FillDGVSelectOdpracovanedni(DataGridView DGV,string idodpracovanedni, string idzamestnanec, string kodzakazka, string koef, string mesiac, string rok)
         {
             string condition;
