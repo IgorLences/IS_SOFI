@@ -13,6 +13,7 @@ namespace Informačný_systém_SOFI.classes
 {
     class DBConnection
     {
+        //parametre na pripojenie do DB(cleardb.net MYSQL)
         private string datasource = "eu-cdbr-west-03.cleardb.net";
         private string port = "3306";
         private static string username;
@@ -21,28 +22,27 @@ namespace Informačný_systém_SOFI.classes
         private string charset = "utf8mb4";
         private MySqlConnection databaseConnection;
       
-        //  private string MySqlConnectionstring = "datasource=" + datasource + ";port=" + port + ";username=" + username + ";password=" + password + ";database=" + database;
 
 
-
+        //získanie errorcode MysqlException 
         public int GetErrorNumber(MySqlException ex)
         {
             int number = ex.Number;
+
             if (ex != null)
             {
-
-                //if the number is zero, try to get the number of the inner exception
                 if (number == 0 && (ex = ex.InnerException as MySqlException) != null)
                 {
                     number = ex.Number;
                 }
             }
+
             return number;
         }
 
 
 
-
+        //Login do DB pomocou zadaných username + password a uloženie prihlasovacích údajov pre dalšie použitie 
         public int Login(string username,string password)
         {
             DBConnection.username = username;
@@ -53,18 +53,13 @@ namespace Informačný_systém_SOFI.classes
                 this.databaseConnection = new MySqlConnection(MySqlConnectionstring);
                 this.databaseConnection.Open();
                 this.databaseConnection.Close();
-                
-               
+                          
                 return 1;
             }
             catch (MySqlException ex)
             {
-
-                //When handling errors, you can your application's response based
-                //on the error number.
-                //The two most common error numbers when connecting are as follows:
-                //0: Cannot connect to server.
-                //1045: Invalid user name and/or password.
+                //0: Nedá sa pripojiť do DB.
+                //1045: Nesprávne prihlasovacie údaje.
                 int errnumber = GetErrorNumber(ex);
                 return errnumber;
             }
@@ -72,7 +67,7 @@ namespace Informačný_systém_SOFI.classes
 
 
 
-
+        //Vytvorenie pripojenia do DB
         public void Connect()
         {
             string MySqlConnectionstring = "datasource=" + datasource + ";port=" + port + ";username=" + username + ";password=" + password + ";database=" + database;
@@ -83,30 +78,27 @@ namespace Informačný_systém_SOFI.classes
             }
             catch (MySqlException ex)
             {
-
-                //When handling errors, you can your application's response based
-                //on the error number.
-                //The two most common error numbers when connecting are as follows:
-                //0: Cannot connect to server.
-                //1045: Invalid user name and/or password.
+                //0: Nedá sa pripojiť do DB.
+                //1040: Veľa pripojení na server.
+                //1045: Nesprávne prihlasovacie údaje.
                 int errnumber = GetErrorNumber(ex);
                 switch (errnumber)
                 {
                     case 0:
                         {
-                            MessageBox.Show("Cannot connect to server.  Contact administrator");
+                            MessageBox.Show("Nedá sa pripojiť na server.");
                         }
                         break;
 
                     case 1040:
                         {
-                            MessageBox.Show("Too many connections to DB");
+                            MessageBox.Show("Veľa pripojení na server.");
                         }
                         break;
 
                     case 1045:
                         {
-                            MessageBox.Show("Invalid username/password, please try again");
+                            MessageBox.Show("Nesprávne prihlasovacie údaje.");
                         }
                         break;
 
@@ -118,19 +110,22 @@ namespace Informačný_systém_SOFI.classes
            
         }
 
+
+
+        // Odpojenie od DB
         public void Disconnect()
         {
             this.databaseConnection.Close();
         }
 
+
+
+        //Vložiť do DB
         public void InsertIntoDB (string table, string Values)
         {
             try
             {
-                string query = "INSERT INTO heroku_db3c94d1d9b65dd." + table + " VALUES " + Values + ";";
-               
-                
-
+                string query = "INSERT INTO heroku_db3c94d1d9b65dd." + table + " VALUES " + Values + ";";              
                 this.Connect();
                 MySqlCommand cmd = new MySqlCommand(query, this.databaseConnection);
                 cmd.ExecuteNonQuery();
@@ -142,6 +137,9 @@ namespace Informačný_systém_SOFI.classes
             }
         }
 
+
+
+        //Vybrať z DB
         public DataTable SelectFromDb(string table, string columms, string condition)
         {
             DataSet ds = new DataSet();
@@ -170,10 +168,15 @@ namespace Informačný_systém_SOFI.classes
             }
         }
 
+
+
+        //Vybrať z DB a uložiť do DataGridView pre zobrazenie dát
         public  void FillDataGridView(string table, string columms, string condition, DataGridView DGV, string join = "", string join2 = "")
         {
             DataSet ds = new DataSet();
             string query;
+
+            //Vybranie správneho SQL príkazu ,podĺa zadaných parametrov
             if (!string.IsNullOrEmpty(condition))
             {
                 query = "SELECT " + columms + " FROM heroku_db3c94d1d9b65dd." + table + " WHERE " + condition + ";";
@@ -221,7 +224,7 @@ namespace Informačný_systém_SOFI.classes
 
 
 
-
+        // Úprava už existujúceho záznamu v DB
         public void UpdateDB(string table, string Values, string condition)
         {
             try
@@ -239,12 +242,16 @@ namespace Informačný_systém_SOFI.classes
             }
         }
 
+
+
+        // Vybranie dát z DB a uloženie ich do ComboBoxu
         public void FillComboBox(string table, string column, ComboBox combobox)
         {
             DataSet DS = new DataSet();
             DataTable DT = new DataTable();
 
             string query = "SELECT DISTINCT " + column + " FROM " + table + "; ";
+
             try
             {
                 this.Connect();
@@ -258,16 +265,14 @@ namespace Informačný_systém_SOFI.classes
                 MessageBox.Show(ex.Message);
             }
 
-            //kvôli CONCAT
+            //kvôli CONCAT - (Meno Priezvisko from zamestnanci)
             string lastWord = column.Split(' ').Last();
 
             DT = DS.Tables[0];
 
-
             DataRow row;
             row = DT.NewRow();
             DT.Rows.InsertAt(row, 0);
-
 
             combobox.DataSource = DT;
             combobox.DisplayMember = lastWord;
