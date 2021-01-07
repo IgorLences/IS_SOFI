@@ -86,7 +86,7 @@ namespace Informačný_systém_SOFI
 
         // Odstránenie vybraného záznamu v tabulke zamestnanci v DB
         private void button_Odstrániť_Click(object sender, EventArgs e)
-        {
+        { 
             if (dataGridView_Zamestnanec.SelectedRows.Count > 0)
             {
                 //uloženie  IDzamestnanca z vybraného riadku
